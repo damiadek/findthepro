@@ -19,8 +19,6 @@ class App extends Component {
                     <NavbarComponent />
                     <Switch>
                         <Route path="/" exact component={Home} />
-                        {/* <Route path="/class" component={Class} />
-                        <Route path="/popup" component={Popup} /> */}
                     </Switch>
                 </div>
             </Router>
