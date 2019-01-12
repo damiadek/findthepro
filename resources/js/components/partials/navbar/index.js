@@ -32,23 +32,26 @@ class NavbarComponent extends Component {
     render() {
         return (
             <div className="row position-fixed w-100">
-                <Navbar color="transparent" dark expand="md">
+                <Navbar className="w-100" color="transparent" dark expand="md">
                     <NavbarBrand href="/">
-                        <span>Find</span>
-                        <b className="text-warning">thePro</b>
+                        <span className="text-warning">Find</span>
+                        <b className="text-info">thePro</b>
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            {/* <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">
-                                GitHub
-                            </NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
+                            <NavItem>
+                                <NavLink href="login">Login</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink>|</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="#">
+                                    Become a Service Provider
+                                </NavLink>
+                            </NavItem>
+                            {/*<UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Options
                             </DropdownToggle>
