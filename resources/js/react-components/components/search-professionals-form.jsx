@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormComponent from "./form";
+import FormComponent from "../partials/form";
 import { Button, FormGroup, Input } from "reactstrap";
 
 class ProfessionalFormComponent extends Component {
@@ -7,7 +7,6 @@ class ProfessionalFormComponent extends Component {
         super(props);
         this.state = {
             specialization: "",
-            location: "",
             error: false
         };
 
@@ -24,26 +23,26 @@ class ProfessionalFormComponent extends Component {
 
     searchForProfessionals(e) {
         e.preventDefault();
-        if (this.state.location === "" || this.state.specialization === "") {
+        if (this.state.specialization === "") {
             this.setState({
-                error: "Please, select all fields"
+                error: "Please, select the service you require"
             });
             return;
         }
 
-        let { specialization, location } = this.state;
+        let { specialization } = this.state;
 
         let data = {
-            specialization: specialization,
-            location: location
+            specialization: specialization
         };
 
-        axios
-            .post("/services", data)
-            .then(
-                response => console.log(response.data),
-                error => console.log(error)
-            );
+        axios.post("/services", data).then(
+            response => {
+                let professionals = response.data;
+                this.props.setProfessionals(professionals);
+            },
+            error => console.log(error)
+        );
     }
 
     render() {
@@ -52,20 +51,7 @@ class ProfessionalFormComponent extends Component {
                 handleSubmit={this.searchForProfessionals}
                 error={this.state.error}
             >
-                <FormGroup>
-                    <Input
-                        type="select"
-                        name="location"
-                        id="location"
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                    >
-                        <option value="">Select Location</option>
-                        <option value="ibadan">Ibadan</option>
-                        <option value="lagos">Lagos</option>
-                    </Input>
-                </FormGroup>
-                <FormGroup>
+                <FormGroup className="mb-5">
                     <Input
                         type="select"
                         name="specialization"
@@ -73,17 +59,17 @@ class ProfessionalFormComponent extends Component {
                         value={this.state.specialization}
                         onChange={this.handleChange}
                     >
-                        <option value="">Select Area of Specialization</option>
+                        <option value="">Select Required Service</option>
                         <option value="teaching">Teaching</option>
                         <option value="cleaning">Cleaning</option>
                         <option value="carpentry">Carpentry</option>
                         <option value="mechanic">Mechanic</option>
-                        <option value="electrician">Electronics</option>
+                        <option value="electronics">Electronics</option>
                         <option value="plumbing">Plumbing</option>
                     </Input>
                 </FormGroup>
                 <Button color="primary" className="text-white" type="submit">
-                    Search for Professionals
+                    Search for Professionals <i className="fa fa-search" />
                 </Button>
             </FormComponent>
         );

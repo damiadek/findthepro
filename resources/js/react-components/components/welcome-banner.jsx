@@ -2,9 +2,7 @@ import React from "react";
 
 const WelcomeBanner = () => {
     return (
-        <div className="display-4 d-block mb-3">
-            Find Professionals around you
-        </div>
+        <div className="display-4 d-block my-5">Find skilled professionals</div>
     );
 };
 

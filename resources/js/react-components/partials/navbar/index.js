@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class NavbarComponent extends Component {
     constructor(props) {
@@ -29,23 +30,35 @@ class NavbarComponent extends Component {
         return (
             <div className="row position-fixed w-100">
                 <Navbar className="w-100" color="transparent" dark expand="md">
-                    <NavbarBrand href="/">
+                    {/* <NavbarBrand href="/view">
                         <span className="text-warning">Find</span>
                         <b className="text-info">thePro</b>
-                    </NavbarBrand>
+                    </NavbarBrand> */}
+
+                    <Link to="/view" className="navbar-brand">
+                        <span className="text-warning">Find</span>
+                        <b className="text-info">thePro</b>
+                    </Link>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="login">Login</NavLink>
+                                <Link to="/view/login" className="nav-link">
+                                    Login
+                                </Link>
+                                {/* <NavLink href="view/login">Login</NavLink> */}
                             </NavItem>
                             <NavItem>
-                                <NavLink>|</NavLink>
+                                {/* <NavLink>|</NavLink> */}
+                                <Link
+                                    to="/view/professionals"
+                                    className="nav-link"
+                                >
+                                    professionals
+                                </Link>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">
-                                    Become a Service Provider
-                                </NavLink>
+                                <NavLink href="#">Register</NavLink>
                             </NavItem>
                             {/*<UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>

@@ -13,10 +13,11 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('view/');
 });
 
 Route::post('/services', 'ServicesController@index');
 
+Route::view('/view/{path?}', 'home');
 
 Route::get('/home', 'HomeController@index')->name('home');
