@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 class NavbarComponent extends Component {
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
@@ -29,7 +28,7 @@ class NavbarComponent extends Component {
         return (
             <div className="row position-fixed w-100">
                 <Navbar className="w-100" dark expand="md" {...this.props}>
-                    <Link to="/view" className="navbar-brand">
+                    <Link to="/" className="navbar-brand">
                         <span className="text-warning">Find</span>
                         <b className="text-info">thePro</b>
                     </Link>
@@ -37,7 +36,7 @@ class NavbarComponent extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Link to="/view/login" className="nav-link">
+                                <Link to="login" className="nav-link">
                                     Login
                                 </Link>
                             </NavItem>
@@ -45,7 +44,7 @@ class NavbarComponent extends Component {
                                 <NavLink>|</NavLink>
                             </NavItem>
                             <NavItem>
-                                <Link to="/view/register" className="nav-link">
+                                <Link to="register" className="nav-link">
                                     Register
                                 </Link>
                             </NavItem>

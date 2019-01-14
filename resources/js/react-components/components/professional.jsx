@@ -30,19 +30,16 @@ const getColor = rating => {
 class Professional extends Component {
     constructor(props) {
         super(props);
-
         this.redirectToRegister = this.redirectToRegister.bind(this);
     }
 
     redirectToRegister() {
-        window.location.href = "/view/register";
+        window.location.href = "register";
     }
 
     render() {
         let { professional } = this.props;
         let color = getColor(professional.rating);
-        let src =
-            "https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180";
 
         return (
             <Col sm="12" md="4" className="mb-5">

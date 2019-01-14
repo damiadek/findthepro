@@ -53,9 +53,9 @@ class App extends Component {
                         className={"w-100 shadow " + this.state.navbarClassName}
                     />
                     <Switch>
-                        <Route path="/view" exact component={Home} />
-                        <Route path="/view/login" exact component={Login} />
-                        <Route path="/view/register" exact component={Signup} />
+                        <Route path="/" exact component={Home} />
+                        <Route path="/login" exact component={Login} />
+                        <Route path="/register" exact component={Signup} />
                     </Switch>
                 </div>
             </Router>

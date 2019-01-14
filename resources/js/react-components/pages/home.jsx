@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import ProfessionalFormComponent from "../components/search-professionals-form";
-import WelcomeBanner from "../components/welcome-banner";
 import { Row, Col, Fade, Button } from "reactstrap";
+
+import WelcomeBanner from "../components/welcome-banner";
 import Professionals from "./professionals";
+import ProfessionalFormComponent from "../components/search-professionals-form";
+
 import { style, blanketStyle } from "../utilities/styles";
+import { windowScroll } from "../utilities/functions";
 
 class Home extends Component {
     constructor(props) {
@@ -27,14 +30,14 @@ class Home extends Component {
 
     setProfessionals(professionals, specialization) {
         this.setState({ professionals, specialization });
-        window.scrollTo({
+        windowScroll({
             top: window.innerHeight,
             behavior: "smooth"
         });
     }
 
     scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        windowScroll({ top: 0, behavior: "smooth" });
     }
 
     render() {

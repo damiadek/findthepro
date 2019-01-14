@@ -76280,15 +76280,15 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_partials_navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "w-100 shadow " + this.state.navbarClassName
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
-        path: "/view",
+        path: "/",
         exact: true,
         component: _pages_home__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
-        path: "/view/login",
+        path: "/login",
         exact: true,
         component: _pages_login__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Route"], {
-        path: "/view/register",
+        path: "/register",
         exact: true,
         component: _pages_signup__WEBPACK_IMPORTED_MODULE_5__["default"]
       }))));
@@ -76487,14 +76487,13 @@ function (_Component) {
   _createClass(Professional, [{
     key: "redirectToRegister",
     value: function redirectToRegister() {
-      window.location.href = "/view/register";
+      window.location.href = "register";
     }
   }, {
     key: "render",
     value: function render() {
       var professional = this.props.professional;
       var color = getColor(professional.rating);
-      var src = "https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         sm: "12",
         md: "4",
@@ -76643,7 +76642,10 @@ function (_Component) {
         name: "specialization",
         id: "specialization",
         value: this.state.specialization,
-        onChange: this.handleChange
+        onChange: this.handleChange,
+        style: {
+          height: "50px"
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: ""
       }, "Select Required Service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -76848,11 +76850,12 @@ var WelcomeBanner = function WelcomeBanner() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_search_professionals_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/search-professionals-form */ "./resources/js/react-components/components/search-professionals-form.jsx");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
 /* harmony import */ var _components_welcome_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/welcome-banner */ "./resources/js/react-components/components/welcome-banner.jsx");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _professionals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./professionals */ "./resources/js/react-components/pages/professionals.jsx");
+/* harmony import */ var _professionals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./professionals */ "./resources/js/react-components/pages/professionals.jsx");
+/* harmony import */ var _components_search_professionals_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/search-professionals-form */ "./resources/js/react-components/components/search-professionals-form.jsx");
 /* harmony import */ var _utilities_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utilities/styles */ "./resources/js/react-components/utilities/styles.js");
+/* harmony import */ var _utilities_functions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utilities/functions */ "./resources/js/react-components/utilities/functions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76870,6 +76873,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -76915,7 +76919,7 @@ function (_Component) {
         professionals: professionals,
         specialization: specialization
       });
-      window.scrollTo({
+      Object(_utilities_functions__WEBPACK_IMPORTED_MODULE_6__["windowScroll"])({
         top: window.innerHeight,
         behavior: "smooth"
       });
@@ -76923,7 +76927,7 @@ function (_Component) {
   }, {
     key: "scrollToTop",
     value: function scrollToTop() {
-      window.scrollTo({
+      Object(_utilities_functions__WEBPACK_IMPORTED_MODULE_6__["windowScroll"])({
         top: 0,
         behavior: "smooth"
       });
@@ -76933,38 +76937,38 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         className: "py-5 justify-content-around",
         style: _utilities_styles__WEBPACK_IMPORTED_MODULE_5__["style"]
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "blanket",
         style: _utilities_styles__WEBPACK_IMPORTED_MODULE_5__["blanketStyle"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         sm: "12",
         md: "4",
         className: "text-white py-5 mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_welcome_banner__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "mt-5"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_professionals_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_search_professionals_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
         setProfessionals: this.setProfessionals,
         setLoading: function setLoading(loading) {
           return _this2.setLoading(loading);
         }
-      }))), this.state.specialization != "" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      }))), this.state.specialization != "" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         className: "justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         sm: "12",
         md: "6",
         className: "text-muted py-5 mt-5 clear-fix"
-      }, this.state.professionals.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Fade"], {
+      }, this.state.professionals.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Fade"], {
         in: !this.state.loading
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "mb-5 font-weight-bold"
-      }, "Professionals with specialization \"", this.state.specialization, "\":", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      }, "Professionals with specialization \"", this.state.specialization, "\":", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
         color: "success",
         className: "float-right",
         onClick: this.scrollToTop
-      }, "search again")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_professionals__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "search again")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_professionals__WEBPACK_IMPORTED_MODULE_3__["default"], {
         professionals: this.state.professionals
       })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "text-center"
@@ -77339,7 +77343,7 @@ function (_Component) {
         dark: true,
         expand: "md"
       }, this.props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/view",
+        to: "/",
         className: "navbar-brand"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "text-warning"
@@ -77354,12 +77358,12 @@ function (_Component) {
         className: "ml-auto",
         navbar: true
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/view/login",
+        to: "login",
         className: "nav-link"
       }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], {
         className: "d-none d-md-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavLink"], null, "|")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/view/register",
+        to: "register",
         className: "nav-link"
       }, "Register"))))));
     }
@@ -77369,6 +77373,22 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (NavbarComponent);
+
+/***/ }),
+
+/***/ "./resources/js/react-components/utilities/functions.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/react-components/utilities/functions.js ***!
+  \**************************************************************/
+/*! exports provided: windowScroll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "windowScroll", function() { return windowScroll; });
+var windowScroll = function windowScroll(options) {
+  window.scrollTo(options);
+};
 
 /***/ }),
 

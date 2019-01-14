@@ -60,6 +60,7 @@ class ProfessionalFormComponent extends Component {
                         id="specialization"
                         value={this.state.specialization}
                         onChange={this.handleChange}
+                        style={{ height: "50px" }}
                     >
                         <option value="">Select Required Service</option>
                         <option value="teaching">Teaching</option>
