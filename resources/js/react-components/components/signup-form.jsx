@@ -8,11 +8,13 @@ class LoginFormComponent extends Component {
         this.state = {
             email: "",
             password: "",
+            confirm_password: "",
+            user_type: "",
             error: false
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.login = this.login.bind(this);
+        this.signup = this.signup.bind(this);
     }
 
     handleChange(e) {
@@ -22,13 +24,13 @@ class LoginFormComponent extends Component {
         });
     }
 
-    login(e) {
+    signup(e) {
         e.preventDefault();
     }
 
     render() {
         return (
-            <FormComponent handleSubmit={this.login} error={this.state.error}>
+            <FormComponent handleSubmit={this.signup} error={this.state.error}>
                 <FormGroup className="mb-3">
                     <Input
                         type="email"
@@ -39,7 +41,7 @@ class LoginFormComponent extends Component {
                         placeholder="Email Address"
                     />
                 </FormGroup>
-                <FormGroup className="mb-5">
+                <FormGroup className="mb-3">
                     <Input
                         type="password"
                         name="password"
@@ -49,6 +51,31 @@ class LoginFormComponent extends Component {
                         placeholder="Password"
                     />
                 </FormGroup>
+                <FormGroup className="mb-3">
+                    <Input
+                        type="password"
+                        name="confirm_password"
+                        id="confirm_password"
+                        value={this.state.confirm_password}
+                        onChange={this.handleChange}
+                        placeholder="Confirm Password"
+                    />
+                </FormGroup>
+                <FormGroup className="mb-5">
+                    <Input
+                        type="select"
+                        name="user_type"
+                        id="user_type"
+                        value={this.state.user_type}
+                        onChange={this.handleChange}
+                    >
+                        <option value="">What do you want to do?</option>
+                        <option value="0">I want to sell my services</option>
+                        <option value="1">
+                            I want to employ professionals
+                        </option>
+                    </Input>
+                </FormGroup>
                 <Button
                     outline
                     block
@@ -57,7 +84,7 @@ class LoginFormComponent extends Component {
                     className="text-white"
                     type="submit"
                 >
-                    Login <i className="fa fa-sign-in-alt" />
+                    Create Account <i className="fa fa-sign-up-alt" />
                 </Button>
             </FormComponent>
         );

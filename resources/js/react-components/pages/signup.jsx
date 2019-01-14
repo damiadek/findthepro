@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginFormComponent from "../components/login-form";
+import SignupFormComponent from "../components/signup-form";
 import { Row, Col } from "reactstrap";
 import { style, blanketStyle } from "../utilities/styles";
 
@@ -20,7 +20,7 @@ class Login extends Component {
                         <span className="text-warning">Find</span>
                         <b className="text-info">thePro</b>
                     </h1>
-                    <LoginFormComponent />
+                    <SignupFormComponent />
                 </Col>
             </Row>
         );

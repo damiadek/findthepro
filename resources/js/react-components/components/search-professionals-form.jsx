@@ -22,6 +22,7 @@ class ProfessionalFormComponent extends Component {
     }
 
     searchForProfessionals(e) {
+        this.props.setLoading(true);
         e.preventDefault();
         if (this.state.specialization === "") {
             this.setState({
@@ -39,7 +40,8 @@ class ProfessionalFormComponent extends Component {
         axios.post("/services", data).then(
             response => {
                 let professionals = response.data;
-                this.props.setProfessionals(professionals);
+                this.props.setProfessionals(professionals, specialization);
+                this.props.setLoading();
             },
             error => console.log(error)
         );

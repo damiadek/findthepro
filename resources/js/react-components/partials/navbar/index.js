@@ -3,7 +3,6 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
     NavLink
@@ -29,12 +28,7 @@ class NavbarComponent extends Component {
     render() {
         return (
             <div className="row position-fixed w-100">
-                <Navbar className="w-100" color="transparent" dark expand="md">
-                    {/* <NavbarBrand href="/view">
-                        <span className="text-warning">Find</span>
-                        <b className="text-info">thePro</b>
-                    </NavbarBrand> */}
-
+                <Navbar className="w-100" dark expand="md" {...this.props}>
                     <Link to="/view" className="navbar-brand">
                         <span className="text-warning">Find</span>
                         <b className="text-info">thePro</b>
@@ -46,31 +40,15 @@ class NavbarComponent extends Component {
                                 <Link to="/view/login" className="nav-link">
                                     Login
                                 </Link>
-                                {/* <NavLink href="view/login">Login</NavLink> */}
+                            </NavItem>
+                            <NavItem className="d-none d-md-block">
+                                <NavLink>|</NavLink>
                             </NavItem>
                             <NavItem>
-                                {/* <NavLink>|</NavLink> */}
-                                <Link
-                                    to="/view/professionals"
-                                    className="nav-link"
-                                >
-                                    professionals
+                                <Link to="/view/register" className="nav-link">
+                                    Register
                                 </Link>
                             </NavItem>
-                            <NavItem>
-                                <NavLink href="#">Register</NavLink>
-                            </NavItem>
-                            {/*<UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>Option 1</DropdownItem>
-                                <DropdownItem>Option 2</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Reset</DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown> */}
                         </Nav>
                     </Collapse>
                 </Navbar>

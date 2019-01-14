@@ -1,0 +1,16 @@
+.position-fixed {
+    z-index: 1000;
+}
+.shadow.bg-transparent {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: all 0.4s;
+}
+.shadow.bg-dark {
+    transition: all 0.4s;
+}
+.card:hover {
+    transform: scale(1.03);
+    transition: all 0.2s;
+    cursor: pointer;
+}

@@ -1,50 +1,87 @@
 import React, { Component } from "react";
 import ProfessionalFormComponent from "../components/search-professionals-form";
 import WelcomeBanner from "../components/welcome-banner";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Fade, Button } from "reactstrap";
 import Professionals from "./professionals";
+import { style, blanketStyle } from "../utilities/styles";
 
 class Home extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loading: false,
+            specialization: "",
+            professionals: []
+        };
+
+        this.setLoading = this.setLoading.bind(this);
+        this.scrollToTop = this.scrollToTop.bind(this);
+        this.setProfessionals = this.setProfessionals.bind(this);
+    }
+
+    setLoading(loading = false) {
+        this.setState({
+            loading: loading
+        });
+    }
+
+    setProfessionals(professionals, specialization) {
+        this.setState({ professionals, specialization });
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+        });
+    }
+
+    scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     render() {
-        const style = {
-            minHeight: "100vh",
-            width: "100vw",
-            backgroundColor: "rgba(0, 0, 0, 0.44)"
-        };
-
         return (
             <React.Fragment>
-                <Row
-                    className="py-5 justify-content-around landing-div"
-                    style={style}
-                >
+                <Row className="py-5 justify-content-around" style={style}>
+                    <div className="blanket" style={blanketStyle} />
                     <Col sm="12" md="4" className="text-white py-5 mt-5">
-                        <WelcomeBanner />
+                        <WelcomeBanner className="mt-5" />
                         <ProfessionalFormComponent
-                            setProfessionals={this.props.setProfessionals}
+                            setProfessionals={this.setProfessionals}
+                            setLoading={loading => this.setLoading(loading)}
                         />
                     </Col>
-                    <Col sm="12" />
-                    <Col
-                        sm="12"
-                        md="6"
-                        className="text-white py-5 mt-5 clear-fix"
-                    >
-                        {this.props.professionals.length > 0 ? (
-                            <Professionals
-                                professionals={this.props.professionals}
-                            />
-                        ) : (
-                            <h3 className="text-center">
-                                No professionals for selected service
-                            </h3>
-                        )}
-                    </Col>
                 </Row>
+                {this.state.specialization != "" && (
+                    <Row className="justify-content-center">
+                        <Col
+                            sm="12"
+                            md="6"
+                            className="text-muted py-5 mt-5 clear-fix"
+                        >
+                            {this.state.professionals.length > 0 ? (
+                                <Fade in={!this.state.loading}>
+                                    <h3 className="mb-5 font-weight-bold">
+                                        Professionals with specialization "
+                                        {this.state.specialization}":
+                                        <Button
+                                            color="success"
+                                            className="float-right"
+                                            onClick={this.scrollToTop}
+                                        >
+                                            search again
+                                        </Button>
+                                    </h3>
+                                    <Professionals
+                                        professionals={this.state.professionals}
+                                    />
+                                </Fade>
+                            ) : (
+                                <h3 className="text-center">
+                                    No professionals for selected service
+                                </h3>
+                            )}
+                        </Col>
+                    </Row>
+                )}
             </React.Fragment>
         );
     }
